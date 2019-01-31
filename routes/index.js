@@ -1,9 +1,10 @@
 var express = require('express');
-
+var Post=require('./../database/models/Post')
 var app = express();
 /* GET home page. */
-app.get('/', (req, res, next) =>{
-  res.render('index');
+app.get('/', async(req, res) =>{
+	const posts=await Post.find({})
+  	res.render('index',{post:post});
 });
 
 
